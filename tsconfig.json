@@ -14,7 +14,11 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "jsx": "react",
-    "declaration": true
+    "declaration": true,
+     "typeRoots": ["./node_modules/@types", "./src/typings"]
   },
-  "include": ["src/**/*"]
+ "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ]
 }
