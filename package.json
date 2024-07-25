@@ -1,0 +1,31 @@
+{
+  "name": "image-with-token",
+  "version": "1.0.0",
+  "description": "React component for displaying images with authorization token.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/image-with-token.git"
+  },
+  "keywords": [
+    "react",
+    "image",
+    "authorization",
+    "token"
+  ],
+  "author": "Emeka Nkwo",
+  "license": "MIT",
+  "dependencies": {
+    "js-cookie": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "@types/js-cookie": "^3.0.1",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11"
+  }
+}
