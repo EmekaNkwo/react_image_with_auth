@@ -1,5 +1,5 @@
 {
-  "name": "react_image_with_token",
+  "name": "react-image-with-auth",
   "version": "1.0.0",
   "description": "React component for displaying images with authorization token.",
   "main": "dist/index.js",

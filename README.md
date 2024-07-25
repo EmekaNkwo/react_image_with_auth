@@ -1,4 +1,4 @@
-# ImageWithToken
+# React-Image-With-Auth
 
 A React component for displaying images with an authorization token in the request headers. This component is designed to be flexible and adaptable to various use cases, allowing the token to be provided via props or cookies.
 
@@ -15,13 +15,13 @@ A React component for displaying images with an authorization token in the reque
 To install the component, use npm or yarn:
 
 ```bash
-npm install image-with-token
+npm install react-image-with-auth
 ```
 
 Or with yarn:
 
 ```bash
-yarn add image-with-token
+yarn add react-image-with-auth
 ```
 
 ## Usage
@@ -30,7 +30,7 @@ Here's how to use the `ImageWithToken` component in your React application:
 
 ```tsx
 import React from "react";
-import ImageWithToken from "image-with-token";
+import ImageWithToken from "react-image-with-auth";
 
 const App = () => {
   const imageUrl = "https://example.com/secure-image.jpg";
