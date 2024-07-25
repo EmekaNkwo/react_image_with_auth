@@ -110,4 +110,4 @@ This project is licensed under the MIT License.
 
 ---
 
-## Thank you for using ImageWithToken!
+## Thank you for using React-Image-With-Auth!
