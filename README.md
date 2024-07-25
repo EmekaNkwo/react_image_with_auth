@@ -107,6 +107,7 @@ This project is licensed under the MIT License.
 
 - [React](https://reactjs.org/)
 - [js-cookie](https://github.com/js-cookie/js-cookie)
+- [rimraf](https://github.com/isaacs/rimraf)
 
 ---
 
