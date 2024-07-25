@@ -1,5 +1,5 @@
 {
-  "name": "image-with-token",
+  "name": "react_image_with_token",
   "version": "1.0.0",
   "description": "React component for displaying images with authorization token.",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/image-with-token.git"
+    "url": "https://github.com/EmekaNkwo/react_image_with_auth.git"
   },
   "keywords": [
     "react",
