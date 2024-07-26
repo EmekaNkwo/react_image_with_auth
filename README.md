@@ -26,7 +26,9 @@ yarn add react-image-with-auth
 
 ## Usage
 
-Here's how to use the `ImageWithToken` component in your React application:
+Basic Usage with Token from Cookie
+
+This example demonstrates fetching an image using a token stored in cookies.
 
 ```tsx
 import React from "react";
@@ -34,14 +36,74 @@ import ImageWithToken from "react-image-with-auth";
 
 const App = () => {
   const imageUrl = "https://example.com/secure-image.jpg";
-  const token = "your-access-token-here"; // Optional, can also be fetched from cookies
+
+  return (
+    <div>
+      <ImageWithToken
+        imageUrl={imageUrl}
+        alt="Secure Image"
+        placeholder="https://example.com/placeholder.jpg"
+        fallback="https://example.com/fallback.jpg"
+        className="custom-class"
+        style={{ borderRadius: "8px", objectFit: "cover" }}
+      />
+    </div>
+  );
+};
+
+export default App;
+```
+
+Using Custom Headers
+
+You can also provide custom headers, which will be merged with the Authorization token if present.
+
+```tsx
+import React from "react";
+import ImageWithToken from "react-image-with-auth";
+
+const App = () => {
+  const imageUrl = "https://example.com/secure-image.jpg";
+  const headers = {
+    "Custom-Header": "custom-value",
+  };
+
+  return (
+    <div>
+      <ImageWithToken
+        imageUrl={imageUrl}
+        headers={headers}
+        alt="Secure Image with Custom Headers"
+        placeholder="https://example.com/placeholder.jpg"
+        fallback="https://example.com/fallback.jpg"
+        className="custom-class"
+        style={{ borderRadius: "8px", objectFit: "cover" }}
+      />
+    </div>
+  );
+};
+
+export default App;
+```
+
+Using Token via Props
+
+If the token is not available in cookies or you want to provide it directly, you can pass it via props.
+
+```tsx
+import React from "react";
+import ImageWithToken from "react-image-with-auth";
+
+const App = () => {
+  const imageUrl = "https://example.com/secure-image.jpg";
+  const token = "your-access-token-here";
 
   return (
     <div>
       <ImageWithToken
         imageUrl={imageUrl}
         token={token}
-        alt="Secure Image"
+        alt="Secure Image with Prop Token"
         placeholder="https://example.com/placeholder.jpg"
         fallback="https://example.com/fallback.jpg"
         className="custom-class"
@@ -58,6 +120,7 @@ export default App;
 
 - `imageUrl` (string, required): The URL of the image to display.
 - `token` (string, optional): Authorization token to include in the request headers. If not provided, the component will try to use a token from cookies.
+- `headers` (HeadersInit, optional): Custom headers object, array of tuples, or Headers instance.
 - `alt` (string, optional): Alt text for the image. Defaults to "Image".
 - `placeholder` (string, optional): URL of a placeholder image to display while loading.
 - `fallback` (string, optional): URL of a fallback image to display on error.
@@ -77,7 +140,7 @@ export default App;
 
    ```bash
    git clone https://github.com/EmekaNkwo/react_image_with_auth.git
-   cd ImageWithToken
+   cd react_image_with_auth
    ```
 
 2. Install dependencies:

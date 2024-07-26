@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 // Define the props interface
 interface ImageComponentProps {
   imageUrl: string;
+  headers?: HeadersInit;
   token?: string; // Token can be provided via prop or default to cookie
   alt?: string;
   placeholder?: string; // URL for a placeholder image while loading or on error
@@ -15,6 +16,7 @@ interface ImageComponentProps {
 const ImageWithToken: React.FC<ImageComponentProps> = ({
   imageUrl,
   token,
+  headers,
   alt = "Image",
   placeholder,
   fallback,
@@ -28,18 +30,15 @@ const ImageWithToken: React.FC<ImageComponentProps> = ({
     let didCancel = false;
     const accessToken = token || Cookies.get("accessToken");
 
-    if (!accessToken) {
-      console.error("No access token provided or found in cookies.");
-      return;
-    }
-
     const fetchImage = async () => {
       try {
-        const response = await fetch(imageUrl, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
+        const headersObj = new Headers(headers);
+        if (token && !headersObj.has("Authorization")) {
+          headersObj.append("Authorization", `Bearer ${accessToken}`);
+        }
+
+        const response = await fetch(imageUrl, { headers: headersObj });
+
         if (!response.ok) {
           throw new Error("Failed to fetch image");
         }
