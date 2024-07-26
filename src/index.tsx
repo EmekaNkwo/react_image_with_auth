@@ -33,7 +33,7 @@ const ImageWithToken: React.FC<ImageComponentProps> = ({
     const fetchImage = async () => {
       try {
         const headersObj = new Headers(headers);
-        if (token && !headersObj.has("Authorization")) {
+        if (accessToken && !headersObj.has("Authorization")) {
           headersObj.append("Authorization", `Bearer ${accessToken}`);
         }
 
