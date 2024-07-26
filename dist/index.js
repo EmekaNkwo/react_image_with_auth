@@ -46,7 +46,7 @@ const ImageWithToken = ({ imageUrl, token, headers, alt = "Image", placeholder, 
         const fetchImage = () => __awaiter(void 0, void 0, void 0, function* () {
             try {
                 const headersObj = new Headers(headers);
-                if (token && !headersObj.has("Authorization")) {
+                if (accessToken && !headersObj.has("Authorization")) {
                     headersObj.append("Authorization", `Bearer ${accessToken}`);
                 }
                 const response = yield fetch(imageUrl, { headers: headersObj });
