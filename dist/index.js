@@ -37,23 +37,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const js_cookie_1 = __importDefault(require("js-cookie"));
 const react_1 = __importStar(require("react"));
-const ImageWithToken = ({ imageUrl, token, alt = "Image", placeholder, fallback, className, style, }) => {
+const ImageWithToken = ({ imageUrl, token, headers, alt = "Image", placeholder, fallback, className, style, }) => {
     const [imgSrc, setImgSrc] = (0, react_1.useState)(placeholder || "");
     const [error, setError] = (0, react_1.useState)(false);
     (0, react_1.useEffect)(() => {
         let didCancel = false;
         const accessToken = token || js_cookie_1.default.get("accessToken");
-        if (!accessToken) {
-            console.error("No access token provided or found in cookies.");
-            return;
-        }
         const fetchImage = () => __awaiter(void 0, void 0, void 0, function* () {
             try {
-                const response = yield fetch(imageUrl, {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`,
-                    },
-                });
+                const headersObj = new Headers(headers);
+                if (token && !headersObj.has("Authorization")) {
+                    headersObj.append("Authorization", `Bearer ${accessToken}`);
+                }
+                const response = yield fetch(imageUrl, { headers: headersObj });
                 if (!response.ok) {
                     throw new Error("Failed to fetch image");
                 }
