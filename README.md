@@ -126,7 +126,7 @@ export default App;
 - `fallback` (string, optional): URL of a fallback image to display on error.
 - `className` (string, optional): CSS class for custom styling.
 - `style` (React.CSSProperties, optional): Inline styles for the image.
-- `showPreview` (boolean, optional): Whether to show the preview of the image.
+- `onClick` (React.MouseEventHandler<HTMLImageElement>, optional): Callback function to handle image click events.
 
 ## Development
 
@@ -171,7 +171,6 @@ This project is licensed under the MIT License.
 
 - [js-cookie](https://github.com/js-cookie/js-cookie)
 - [react](https://github.com/facebook/react)
-- [antd](https://github.com/ant-design/ant-design)
 
 ---
 
