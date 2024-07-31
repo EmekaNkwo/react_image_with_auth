@@ -37,7 +37,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const js_cookie_1 = __importDefault(require("js-cookie"));
 const react_1 = __importStar(require("react"));
-const ImageWithToken = ({ imageUrl, token, headers, alt = "Image", placeholder, fallback, className, style, }) => {
+const antd_1 = require("antd");
+const ImageWithToken = ({ imageUrl, token, headers, alt = "Image", placeholder, fallback, className, style, showPreview, }) => {
     const [imgSrc, setImgSrc] = (0, react_1.useState)(placeholder || "");
     const [error, setError] = (0, react_1.useState)(false);
     (0, react_1.useEffect)(() => {
@@ -74,6 +75,7 @@ const ImageWithToken = ({ imageUrl, token, headers, alt = "Image", placeholder, 
             }
         };
     }, [imageUrl, token]);
-    return (react_1.default.createElement("img", { src: error && fallback ? fallback : imgSrc, alt: alt, className: className, style: style, onError: () => setError(true) }));
+    return showPreview ? (react_1.default.createElement(antd_1.Image, { src: error && fallback ? fallback : imgSrc, alt: alt, className: className, style: style, onError: () => setError(true), placeholder: react_1.default.createElement("img", { src: placeholder, alt: "placeholder" }), fallback: fallback, preview // Enables preview mode
+        : true })) : (react_1.default.createElement("img", { src: error && fallback ? fallback : imgSrc, alt: alt, className: className, style: style, onError: () => setError(true) }));
 };
 exports.default = react_1.default.memo(ImageWithToken);

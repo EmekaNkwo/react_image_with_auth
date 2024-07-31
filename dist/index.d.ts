@@ -8,6 +8,7 @@ interface ImageComponentProps {
     fallback?: string;
     className?: string;
     style?: React.CSSProperties;
+    showPreview?: boolean;
 }
 declare const _default: React.NamedExoticComponent<ImageComponentProps>;
 export default _default;
